@@ -3,13 +3,18 @@
 #### 说明
 
 1.输入时间，点击开始开始倒计时。
+
 2.点击停止，停止倒计时，重设时间。
+
 3.计时结束，弹出对话框进行提醒
 
-![运行示例](https://github.com/wudidada/time-alarm/blob/master/timer.gif)
+<center>[运行示例](https://github.com/wudidada/time-alarm/blob/master/timer.gif)</center>
 
-![消息提醒](https://github.com/wudidada/time-alarm/blob/master/message.png)
+<center>**运行示例**</center>
 
+<center>![消息提醒](https://github.com/wudidada/time-alarm/blob/master/message.png)</center>
+
+<center>**消息提醒**</center>
 
 **tip:** 
 >使用Chorme浏览器在视频播放后右键弹出菜单，鼠标就能随意移动，win + D回到桌面就能干自己想干的事了。
