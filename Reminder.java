@@ -16,28 +16,28 @@ public class Reminder implements ActionListener {
 	
 	Timer timer;
 	TimerTask task;
-	Boolean isStart;		//¿ØÖÆµã»÷¿ªÊ¼ºó¿ªÊ¼°´Å¥²»ÔÙ¿ÉÓÃ
+	Boolean isStart;		//æ§åˆ¶ç‚¹å‡»å¼€å§‹åå¼€å§‹æŒ‰é’®ä¸å†å¯ç”¨
 	int time;
 	
 	
 	Reminder() {
-		//Ò³Ãæ²¼¾Ö
+		//é¡µé¢å¸ƒå±€
 		minute = new JTextField();
 		minute.setBounds(50, 30, 30, 30);
-		minute_text = new JLabel("·Ö");
+		minute_text = new JLabel("åˆ†");
 		minute_text.setBounds(80, 30, 30, 30);
 		
 		second = new JTextField();
 		second.setBounds(100, 30, 30, 30);
-		second_text = new JLabel("Ãë");
+		second_text = new JLabel("ç§’");
 		second_text.setBounds(130, 30, 30, 30);
 		
-		start = new JButton("¿ªÊ¼");
+		start = new JButton("å¼€å§‹");
 		start.setBounds(25, 85, 60, 40);
-		stop = new JButton("Í£Ö¹");
+		stop = new JButton("åœæ­¢");
 		stop.setBounds(105, 85, 60, 40);
 		
-		//°´Å¥¼ÓÉÏ¼àÌıÆ÷
+		//æŒ‰é’®åŠ ä¸Šç›‘å¬å™¨
 		start.addActionListener(this);	
 		stop.addActionListener(this);	
 		
@@ -53,15 +53,15 @@ public class Reminder implements ActionListener {
 		frame.setLayout(null);
 		frame.setLocationRelativeTo(null);
 		
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);	//µã»÷¹Ø±ÕºóÊ¹³ÌĞòÍË³ö£¬Ä¬ÈÏÎªHIDE_ON_CLOSE
-		frame.getRootPane().setDefaultButton(start);	//¼àÌı»Ø³µ£¬´¥·¢¿ªÊ¼
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);	//ç‚¹å‡»å…³é—­åä½¿ç¨‹åºé€€å‡ºï¼Œé»˜è®¤ä¸ºHIDE_ON_CLOSE
+		frame.getRootPane().setDefaultButton(start);	//ç›‘å¬å›è½¦ï¼Œè§¦å‘å¼€å§‹
 		isStart = false;
 		frame.setVisible(true);
 		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//µã»÷¿ªÊ¼Ê±²Ù×÷
+		//ç‚¹å‡»å¼€å§‹æ—¶æ“ä½œ
 		if(e.getSource() == start) {
 			if(!isStart) {
 				isStart = true;
@@ -69,7 +69,7 @@ public class Reminder implements ActionListener {
 			}
 		}	
 			
-		//µã»÷Í£Ö¹Ê±²Ù×÷
+		//ç‚¹å‡»åœæ­¢æ—¶æ“ä½œ
 		if(e.getSource() == stop) {
 			stop();
 		}
@@ -77,7 +77,7 @@ public class Reminder implements ActionListener {
 	
 	
 	private void start() {
-		//²»ÊäÈëÔòÄ¬ÈÏÎª0
+		//ä¸è¾“å…¥åˆ™é»˜è®¤ä¸º0
 		String min_str = minute.getText().equals("") ? "0" : minute.getText();
 		String sec_str = second.getText().equals("") ? "0" : second.getText();
 		
@@ -88,21 +88,21 @@ public class Reminder implements ActionListener {
 		if(time == 0) {
 			return;
 		}
-		//Ê¹ÊäÈë¿ò²»ÔÙÄÜ±à¼­
+		//ä½¿è¾“å…¥æ¡†ä¸å†èƒ½ç¼–è¾‘
 		minute.setEditable(false);
 		second.setEditable(false);
 		
-		//ÀûÓÃTimerÀàÊµÏÖ¼ÆÊ±
+		//åˆ©ç”¨Timerç±»å®ç°è®¡æ—¶
 		timer = new Timer();
 		task = new TimerTask() {
 			public void run() {
 				time--;
 				minute.setText(String.valueOf(time / 60));
 				second.setText(String.valueOf(time % 60));
-				//¼ÆÊ±½áÊø Í£Ö¹¼ÆÊ± µ¯³ö´°¿Ú 
+				//è®¡æ—¶ç»“æŸ åœæ­¢è®¡æ—¶ å¼¹å‡ºçª—å£ 
 				if(time == 0) {
-					frame.setAlwaysOnTop(true);							//½«´°¿ÚÖÃ¶¥£¬ÏûÏ¢´°¿ÚËæÖ®ÖÃ¶¥
-					JOptionPane.showMessageDialog(frame, "Ê±¼äµ½ÁË£¡");
+					frame.setAlwaysOnTop(true);							//å°†çª—å£ç½®é¡¶ï¼Œæ¶ˆæ¯çª—å£éšä¹‹ç½®é¡¶
+					JOptionPane.showMessageDialog(frame, "æ—¶é—´åˆ°äº†ï¼");
 					stop();
 				}
 			}
@@ -111,11 +111,11 @@ public class Reminder implements ActionListener {
 	}
 	
 	private void stop() {
-		//È¡Ïû¼ÆÊ±ÈÎÎñ »Ö¸´¿ªÊ¼°´Å¥
+		//å–æ¶ˆè®¡æ—¶ä»»åŠ¡ æ¢å¤å¼€å§‹æŒ‰é’®
 		if(timer != null) {
 			timer.cancel();
 			timer.purge();
-			clearTime();		//Çå¿ÕÊäÈëÀ¸£¬·½±ãÊäÈë
+			clearTime();		//æ¸…ç©ºè¾“å…¥æ ï¼Œæ–¹ä¾¿è¾“å…¥
 			minute.setEditable(true);
 			second.setEditable(true);
 			frame.setAlwaysOnTop(false);
@@ -123,7 +123,7 @@ public class Reminder implements ActionListener {
 		}
 	}
 	
-	private void clearTime() {
+	private void clearTime(){
 		minute.setText("");
 		second.setText("");	
 	}
